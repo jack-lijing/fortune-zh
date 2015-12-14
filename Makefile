@@ -27,7 +27,7 @@ clean:
 install: all
 	mkdir -p $(DESTDIR)$(FORTUNES)  
 	mkdir -p $(DESTDIR)$(GAMES)
-	install -m0755  fortune-zh        "$(DESTDIR)/usr/bin/"
+	install -m0755  fortune-zh        $(DESTDIR)$(GAMES)
 	install -m0644  $(TEXTS) $(DATA)  $(DESTDIR)$(FORTUNES)
 #	install -m0644 shijing $(DESTDIR)$(FORTUNES)
 #	cp -d shijing.u8 $(DESTDIR)$(FORTUNES)
