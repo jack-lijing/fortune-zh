@@ -1,6 +1,7 @@
 DESTDIR=
-FORTUNES=/usr/share/games/fortunes
-GAMES=/usr/games
+FORTUNES=/usr/share/fortune
+GAMES=/usr/bin
+
 
 TEXTS = tang300 song100 chinese
 DATA=tang300.dat song100.dat chinese.dat
@@ -25,7 +26,7 @@ clean:
 
 install: all
 	mkdir -p $(DESTDIR)$(FORTUNES)
-	mkdir -p $(DESTDIR)$(GAMES)
+#	mkdir -p $(DESTDIR)$(GAMES)
 	install -m0755  fortune-zh        $(DESTDIR)$(GAMES)
 	install -m0644  $(TEXTS) $(DATA)  $(DESTDIR)$(FORTUNES)
 #	install -m0644 shijing $(DESTDIR)$(FORTUNES)
