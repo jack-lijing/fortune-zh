@@ -8,7 +8,7 @@
 
 # Maintainer: Debian Chinese Team <chinese-developers@lists.alioth.debian.org>
 pkgname=fortune-zh
-pkgver=1.9
+pkgver=2.0
 pkgrel=1
 pkgdesc=" This software package contains the Chinese data files for fortune in utf8 encoding.  Those libraries included tang300 -- 300_Tang_Poems and other Chinese classical poetry"
 arch=('any')
@@ -23,20 +23,22 @@ replaces=()
 backup=()
 options=()
 install=
-source=("http://http.debian.net/debian/pool/main/f/fortune-zh/fortune-zh_1.9.tar.gz")
-sha1sums=('dabc9b495fca75584ae52041187d93da1e6c44df')
+source=("http://github.com/jack-lijing/fortune-zh/archive/master.zip")
+sha1sums=('8df11f37348e93584d57abfe38bfe962338544fd')
 
 build() {
   cd "$srcdir"
   msg "Connecting to Server"
-  tar xvf ${pkgname}_${pkgver}.tar.gz
-  cd "$srcdir/${pkgname}-${pkgver}"
+  unzip master.zip
+#  tar xvf ${pkgname}_${pkgver}.tar.gz
+#  cd "$srcdir/${pkgname}-${pkgver}"
+  cd "$srcdir/fortune-zh-master"
   make all
 }
 
 package() {
-  cd "$srcdir/${pkgname}-${pkgver}"
-  make DESTDIR="$pkgdir/" install
+  cd "$srcdir/fortune-zh-master"
+  make "DESTDIR=$pkgdir/" install
 }
 
 # vim:set ts=2 sw=2 et:
